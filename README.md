@@ -22,7 +22,7 @@ Este proyecto está disponible en:
 
 ## 🤝 Cómo colaborar
 
-¿Quieres unirte, donar o colaborar con nosotros?  
+¿Quieres unirte, donar o colaborar con nosotros? 
 Escríbenos a: lifepanamaorg@gmail.com
 
 
