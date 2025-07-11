@@ -2,172 +2,119 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Life Panamá</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #e6f5e6;
-      margin: 0;
-      padding: 20px;
-      color: #2f4f2f;
-    }
-    header {
-      background-color: #2e8b57;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    section {
-      margin-top: 30px;
-      line-height: 1.5;
-    }
-    footer {
-      margin-top: 50px;
-      padding: 20px;
-      text-align: center;
-      background-color: #d0e6d0;
-    }
-    .redes a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #2e8b57;
-      font-weight: bold;
-    }
-    .redes a:hover {
-      text-decoration: underline;
-    }
-    .boton-donar {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #2e8b57;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    .boton-donar:hover {
-      background-color: #246f47;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #2e8b57;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #cfead1;
-    }
-    .info-section ul {
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-    .info-section a.project-link {
-      color: #2e8b57;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .info-section a.project-link:hover {
-      text-decoration: underline;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; background-color: #f2f2f2; }
+    header, footer { background-color: #006644; color: white; text-align: center; padding: 1em; }
+    nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
+    section { padding: 20px; }
+    .gallery img { width: 100%; max-width: 300px; margin: 10px; border-radius: 10px; }
+    .form-container { background: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; }
+    .form-container input, .form-container textarea { width: 100%; margin-bottom: 10px; padding: 10px; }
+    .form-container button { padding: 10px 20px; background-color: #006644; color: white; border: none; cursor: pointer; }
+    .share-buttons a { margin: 5px; text-decoration: none; color: #006644; }
+    iframe { border-radius: 10px; margin: 10px 0; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🌿 Life Panamá</h1>
-    <p>Organización para la conservación ambiental y ciencia ciudadana</p>
-  </header>
+<header>
+  <h1>Life Panamá</h1>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#objetivos">Objetivos</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#colabora">Colabora</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
 
-  <section class="info-section">
-    <h2>Life Panamá – Plataforma para la Conservación Ambiental</h2>
-    <p>Life Panamá es una iniciativa de divulgación científica, educación ambiental y acción comunitaria enfocada en la protección de ecosistemas, la limpieza de playas y la concientización ciudadana. Este sitio servirá como base para desarrollar una futura fundación sin fines de lucro.</p>
-  </section>
-
-  <section>
-    <h2>Sobre Nosotros</h2>
-    <p>Somos una organización enfocada en la conservación ambiental que realiza limpiezas de playa con participación comunitaria, actividades de educación ambiental y Divulgación de la ciciencia ciudadana en Panamá.</p></p>
-    <p>Este sitio web fue creado para compartir nuestras iniciativas, conectar con voluntarios, promover la educación ambiental y facilitar donaciones para seguir desarrollando proyectos que protejan nuestros ecosistemas.</p>
-  </section>
-
-  <section class="info-section">
-    <h3>🎯 Objetivos</h3>
-    <ul>
-      <li>Promover la educación ambiental y la ciencia ciudadana</li>
-      <li>Organizar limpiezas de playa y campañas ecológicas</li>
-      <li>Publicar contenido educativo sobre biodiversidad, cambio climático y conservación</li>
-      <li>Recibir donaciones y vender productos solidarios</li>
-      <li>Aplicar a fondos internacionales para investigación y acción ambiental</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Próximos eventos</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>📅 Fecha</th>
-          <th>📍 Lugar</th>
-          <th>📝 Actividad</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>20 de julio</td>
-          <td>Playa Veracruz</td>
-          <td>Limpieza de playa</td>
-        </tr>
-        <tr>
-          <td>2 de agosto</td>
-          <td>Centro Cultural de Panamá</td>
-          <td>Charla sobre microplásticos</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section>
-    <h2>¿Cómo colaborar?</h2>
-    <p>¿Quieres unirte como voluntario? Escríbenos a: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
-    <p>¿Quieres apoyarnos con una donación? Tu ayuda es fundamental.</p>
-    <a href="https://www.paypal.com/donate" target="_blank" class="boton-donar">💚 Donar ahora</a>
-
-    <h3>📄 Licencias</h3>
-    <ul>
-      <li>El código fuente de este sitio está licenciado bajo <strong>MIT License</strong></li>
-      <li>El contenido educativo y gráfico está bajo <strong>CC BY-NC 4.0</strong></li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>© 2025 Life Panamá • <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
-    <div class="redes">
-      🌐 Síguenos:
-      <a href="https://www.instagram.com/lifepanamaorg" target="_blank">📸 Instagram</a>
-      <a href="https://www.facebook.com/lifepanamaorg" target="_blank">📘 Facebook</a>
-      <a href="https://wa.me/50764738689" target="_blank">💬 WhatsApp</a>
-    </div>
-  </footer>
-
-  <!-- Google Translate -->
-  <div id="google_translate_element" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
-
-  <script type="text/javascript">
+<!-- Traductor -->
+<div id="google_translate_element" style="float: right; margin: 10px;"></div>
+<script type="text/javascript">
   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'es',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
+    new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
   }
-  </script>
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<section id="sobre">
+  <h2>Sobre Life Panamá</h2>
+  <p>Somos una organización comprometida con la conservación ambiental, la divulgación científica y las limpiezas de playa en Panamá.</p>
+</section>
+
+<section id="objetivos">
+  <h2>Objetivos</h2>
+  <ul>
+    <li>Conservar y proteger los ecosistemas marinos y terrestres.</li>
+    <li>Educar a la comunidad sobre prácticas sostenibles.</li>
+    <li>Promover la participación ciudadana en actividades ecológicas.</li>
+  </ul>
+</section>
+
+<section id="eventos">
+  <h2>Próximos Eventos</h2>
+  <ul>
+    <li>🌿 Limpieza de playa en Veracruz - 20 de julio, 8:00 a.m.</li>
+    <li>🧪 Taller de ciencia para niños - 27 de julio, 10:00 a.m.</li>
+  </ul>
+</section>
+
+<section id="colabora">
+  <h2>Cómo Colaborar</h2>
+  <p>Tu apoyo puede hacer la diferencia. Puedes colaborar como voluntario o realizar una donación.</p>
+  <p>Únete a nuestras actividades y se parte del cambio positivo.</p>
+  <a href="mailto:lifepanamaorg@gmail.com?subject=Quiero colaborar con Life Panamá">
+    <button>Ser voluntario</button>
+  </a>
+  <br><br>
+  <p>Si deseas apoyar económicamente, puedes hacerlo aquí:</p>
+  <a href="https://www.paypal.com/donate" target="_blank">
+    <button>Donar</button>
+  </a>
+</section>
+
+<section id="galeria">
+  <h2>Galería</h2>
+
+  <div class="gallery">
+    <img src="https://via.placeholder.com/300x200.png?text=Foto+1" alt="Foto 1">
+    <img src="https://via.placeholder.com/300x200.png?text=Foto+2" alt="Foto 2">
+    <img src="https://via.placeholder.com/300x200.png?text=Foto+3" alt="Foto 3">
+  </div>
+
+  <h3>Videos en vivo desde Facebook</h3>
+  <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/lifepanamaorg/videos/123456789" width="400" height="300" allowfullscreen></iframe>
+
+  <div class="share-buttons">
+    <h4>Compartir esta sección:</h4>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://lifepanama.github.io" target="_blank">📘 Facebook</a>
+    <a href="https://twitter.com/intent/tweet?text=Mira%20la%20galería%20de%20Life%20Panamá%20https://lifepanama.github.io" target="_blank">🐦 X (Twitter)</a>
+    <a href="https://api.whatsapp.com/send?text=Galería%20de%20Life%20Panamá%20https://lifepanama.github.io" target="_blank">📱 WhatsApp</a>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <div class="form-container">
+    <form action="mailto:lifepanamaorg@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="Nombre" placeholder="Tu nombre" required>
+      <input type="email" name="Correo" placeholder="Tu correo electrónico" required>
+      <textarea name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Life Panamá | Todos los derechos reservados.</p>
+  <p>
+    <a href="https://www.facebook.com/lifepanamaorg" style="color:white;">Facebook</a>
+  </p>
+  <p>Contenido bajo licencia Creative Commons BY-NC-SA 4.0</p>
+</footer>
 
 </body>
 </html>
-
