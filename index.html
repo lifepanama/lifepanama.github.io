@@ -231,175 +231,169 @@
   </section>
 
   <!-- NUEVO: Calendario de Próximos eventos -->
-  <section>
-  <h2 style="text-align:center; color:#2e8b57; margin-bottom: 5px;">Próximos eventos - Julio 2025</h2>
-  <table class="calendar" aria-label="Calendario de próximos eventos" style="max-width: 600px; margin-left:auto; margin-right:auto; border:1px solid #2e8b57;">
-    <thead>
-      <tr>
-        <th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th><th>Domingo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td><td></td>
-        <td>
-          <div class="fecha-num">1</div>
-        </td>
-        <td class="evento">
-          <div class="fecha-num">2</div>
-          <div class="evento-detalle">
-            Limpieza de Playa<br/>
-            Playa Veracruz
-          </div>
-        </td>
-        <td>
-          <div class="fecha-num">3</div>
-        </td>
-        <td>
-          <div class="fecha-num">4</div>
-        </td>
-        <td>
-          <div class="fecha-num">5</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">6</div>
-        </td>
-        <td>
-          <div class="fecha-num">7</div>
-        </td>
-        <td>
-          <div class="fecha-num">8</div>
-        </td>
-        <td>
-          <div class="fecha-num">9</div>
-        </td>
-        <td class="evento">
-          <div class="fecha-num">10</div>
-          <div class="evento-detalle">
-            Taller Ambiental
-          </div>
-        </td>
-        <td>
-          <div class="fecha-num">11</div>
-        </td>
-        <td>
-          <div class="fecha-num">12</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">13</div>
-        </td>
-        <td class="evento">
-          <div class="fecha-num">14</div>
-          <div class="evento-detalle">
-            Charla Científica
-          </div>
-        </td>
-        <td>
-          <div class="fecha-num">15</div>
-        </td>
-        <td>
-          <div class="fecha-num">16</div>
-        </td>
-        <td>
-          <div class="fecha-num">17</div>
-        </td>
-        <td>
-          <div class="fecha-num">18</div>
-        </td>
-        <td>
-          <div class="fecha-num">19</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">20</div>
-        </td>
-        <td>
-          <div class="fecha-num">21</div>
-        </td>
-        <td>
-          <div class="fecha-num">22</div>
-        </td>
-        <td>
-          <div class="fecha-num">23</div>
-        </td>
-        <td>
-          <div class="fecha-num">24</div>
-        </td>
-        <td>
-          <div class="fecha-num">25</div>
-        </td>
-        <td>
-          <div class="fecha-num">26</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">27</div>
-        </td>
-        <td>
-          <div class="fecha-num">28</div>
-        </td>
-        <td>
-          <div class="fecha-num">29</div>
-        </td>
-        <td>
-          <div class="fecha-num">30</div>
-        </td>
-        <td>
-          <div class="fecha-num">31</div>
-        </td>
-        <td></td><td></td>
-      </tr>
-    </tbody>
-  </table>
+ <section id="proximos-eventos">
+  <h2 style="text-align:center; color:#2e8b57; margin-bottom: 10px;">Próximos eventos</h2>
+  <div id="calendario-dinamico" style="max-width: 600px; margin: 0 auto;"></div>
 
-  <style>
-    table.calendar {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 600px;
-      margin-left:auto;
-      margin-right:auto;
-      border: 1px solid #2e8b57;
-      color: #2f4f2f;
-      font-family: Arial, sans-serif;
-    }
-    table.calendar th, table.calendar td {
-      border: 1px solid #2e8b57;
-      padding: 8px;
-      vertical-align: top;
-      text-align: center;
-    }
-    table.calendar thead th {
-      background-color: #2e8b57;
-      color: white;
-      font-weight: bold;
-      padding: 12px;
-    }
-    .fecha-num {
-      font-weight: bold;
-      font-size: 1.1em;
-      margin-bottom: 6px;
-    }
-    td.evento {
-      background-color: #d0f0d0;
-      cursor: default;
-    }
-    .evento-detalle {
-      font-size: 0.85em;
-      color: #236323;
-      line-height: 1.2em;
-    }
-    td.evento:hover {
-      background-color: #a2dba2;
-    }
-  </style>
+  <!-- Modal para mostrar detalles del evento -->
+  <div id="modal-evento" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); 
+      justify-content:center; align-items:center; z-index:1000;">
+    <div style="background:#fff; padding:20px; border-radius:8px; max-width:400px; width:90%; position:relative;">
+      <button id="cerrar-modal" style="position:absolute; top:10px; right:10px; font-size:1.2em; cursor:pointer; background:none; border:none;">✖</button>
+      <h3 id="modal-titulo" style="color:#2e8b57; margin-top:0;"></h3>
+      <p id="modal-lugar" style="font-weight:bold; color:#236323;"></p>
+      <p id="modal-descripcion" style="margin-top:10px;"></p>
+    </div>
+  </div>
 </section>
+
+<script>
+  // Datos de eventos: formato YYYY-MM-DD, título, lugar y descripción
+  const eventos = [
+    {fecha: '2025-07-02', titulo: 'Limpieza de Playa', lugar: 'Playa Veracruz', descripcion: 'Únete a la limpieza comunitaria para proteger nuestras playas.'},
+    {fecha: '2025-07-10', titulo: 'Taller Ambiental', lugar: 'Centro Cultural', descripcion: 'Aprende sobre prácticas sostenibles y conservación.'},
+    {fecha: '2025-07-14', titulo: 'Charla Científica', lugar: 'Universidad de Panamá', descripcion: 'Conoce más sobre ciencia ciudadana y biodiversidad.'},
+    // Agrega más eventos aquí...
+  ];
+
+  function crearCalendario() {
+    const contenedor = document.getElementById('calendario-dinamico');
+    contenedor.innerHTML = '';
+
+    const hoy = new Date();
+    const mes = hoy.getMonth();
+    const anio = hoy.getFullYear();
+
+    // Nombres días semana
+    const diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+    // Título mes y año
+    const mesesNombres = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    const titulo = document.createElement('h3');
+    titulo.textContent = `${mesesNombres[mes]} ${anio}`;
+    titulo.style.color = '#2e8b57';
+    titulo.style.textAlign = 'center';
+    titulo.style.marginBottom = '10px';
+    contenedor.appendChild(titulo);
+
+    // Crear tabla calendario
+    const tabla = document.createElement('table');
+    tabla.style.borderCollapse = 'collapse';
+    tabla.style.width = '100%';
+    tabla.style.maxWidth = '600px';
+    tabla.style.margin = '0 auto';
+    tabla.style.color = '#2f4f2f';
+    tabla.style.fontFamily = 'Arial, sans-serif';
+    tabla.style.border = '1px solid #2e8b57';
+
+    // Crear encabezado de días semana
+    const thead = document.createElement('thead');
+    const trHead = document.createElement('tr');
+    diasSemana.forEach(dia => {
+      const th = document.createElement('th');
+      th.textContent = dia;
+      th.style.backgroundColor = '#2e8b57';
+      th.style.color = 'white';
+      th.style.padding = '8px';
+      th.style.border = '1px solid #2e8b57';
+      trHead.appendChild(th);
+    });
+    thead.appendChild(trHead);
+    tabla.appendChild(thead);
+
+    // Crear cuerpo con días del mes
+    const tbody = document.createElement('tbody');
+
+    // Primer día del mes
+    const primerDia = new Date(anio, mes, 1);
+    // Último día del mes
+    const ultimoDia = new Date(anio, mes + 1, 0);
+    const numDiasMes = ultimoDia.getDate();
+
+    // Ajustar índice para que lunes sea 0 (JS domingo es 0)
+    let diaSemanaPrimerDia = primerDia.getDay(); // domingo=0,...sábado=6
+    diaSemanaPrimerDia = diaSemanaPrimerDia === 0 ? 6 : diaSemanaPrimerDia - 1;
+
+    let fila = document.createElement('tr');
+
+    // Rellenar celdas vacías antes del primer día
+    for (let i = 0; i < diaSemanaPrimerDia; i++) {
+      const td = document.createElement('td');
+      td.style.border = '1px solid #2e8b57';
+      td.style.height = '80px';
+      fila.appendChild(td);
+    }
+
+    for (let dia = 1; dia <= numDiasMes; dia++) {
+      if (fila.children.length === 7) {
+        tbody.appendChild(fila);
+        fila = document.createElement('tr');
+      }
+
+      const td = document.createElement('td');
+      td.style.border = '1px solid #2e8b57';
+      td.style.padding = '8px';
+      td.style.height = '80px';
+      td.style.verticalAlign = 'top';
+      td.style.cursor = 'default';
+      td.style.position = 'relative';
+
+      // Crear número de día
+      const numDia = document.createElement('div');
+      numDia.textContent = dia;
+      numDia.style.fontWeight = 'bold';
+      numDia.style.marginBottom = '6px';
+      td.appendChild(numDia);
+
+      // Buscar evento para este día
+      const fechaStr = `${anio}-${String(mes + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+      const evento = eventos.find(ev => ev.fecha === fechaStr);
+
+      if (evento) {
+        td.style.backgroundColor = '#d0f0d0';
+        td.style.cursor = 'pointer';
+
+        // Mostrar título evento debajo número día
+        const detalle = document.createElement('div');
+        detalle.textContent = evento.titulo;
+        detalle.style.fontSize = '0.85em';
+        detalle.style.color = '#236323';
+        detalle.style.lineHeight = '1.2em';
+        td.appendChild(detalle);
+
+        // Al hacer clic mostrar modal con detalles completos
+        td.addEventListener('click', () => {
+          document.getElementById('modal-titulo').textContent = evento.titulo;
+          document.getElementById('modal-lugar').textContent = evento.lugar;
+          document.getElementById('modal-descripcion').textContent = evento.descripcion;
+          document.getElementById('modal-evento').style.display = 'flex';
+        });
+      }
+
+      fila.appendChild(td);
+    }
+
+    // Completar la última fila con celdas vacías si faltan para 7 días
+    while (fila.children.length < 7) {
+      const td = document.createElement('td');
+      td.style.border = '1px solid #2e8b57';
+      td.style.height = '80px';
+      fila.appendChild(td);
+    }
+
+    tbody.appendChild(fila);
+    tabla.appendChild(tbody);
+    contenedor.appendChild(tabla);
+  }
+
+  // Función para cerrar modal
+  document.getElementById('cerrar-modal').addEventListener('click', () => {
+    document.getElementById('modal-evento').style.display = 'none';
+  });
+
+  // Crear calendario al cargar la página
+  window.addEventListener('DOMContentLoaded', crearCalendario);
+</script>
 
   <!-- NUEVO: Galería -->
   <section id="galeria">
