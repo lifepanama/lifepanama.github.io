@@ -254,11 +254,6 @@
     </table>
   </section>
 
-  <!-- Botón donar -->
-  <section style="text-align:center; margin-top: 30px;">
-    <button class="boton-donar" onclick="window.open('https://www.paypal.com/donate', '_blank')">💚 Donar ahora</button>
-  </section>
-
   <!-- NUEVO: Galería -->
   <section id="galeria">
     <h2>Galería</h2>
@@ -291,52 +286,45 @@
     });
   </script>
 
+   <!-- NUEVA: Cómo colaborar -->
+  <section id="como-colaborar" style="margin-top: 40px; max-width: 600px; margin-left:auto; margin-right:auto; color: #2f4f2f;">
+    <h2>¿Cómo colaborar?</h2>
+    <p>¿Quieres unirte como voluntario? Escríbenos a: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
+    <p>¿Quieres apoyarnos con una donación? Tu ayuda es fundamental.</p>
+
+    <!-- Botón donar justo aquí -->
+    <button class="boton-donar" onclick="window.open('https://www.paypal.com/donate', '_blank')">💚 Donar ahora</button>
+  </section>
+
   <!-- NUEVO: Sección Contacto -->
-  <section id="contacto">
+  <section id="contacto" style="margin-top: 50px;">
     <h2>Contacto</h2>
-    <form id="form-contacto" action="mailto:lifepanamaorg@gmail.com" method="post" enctype="text/plain" novalidate>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+    <form id="form-contacto" action="mailto:lifepanamaorg@gmail.com" method="post" enctype="text/plain" novalidate style="max-width: 500px; margin-left:auto; margin-right:auto; display:flex; flex-direction: column; gap:15px; color: #2f4f2f;">
+      <label for="nombre" style="font-weight: bold;">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required style="padding: 8px; border: 1px solid #2e8b57; border-radius: 5px; font-size: 1em; background-color: #f7fff7; color: #2f4f2f;" />
       
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+      <label for="email" style="font-weight: bold;">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="tu@email.com" required style="padding: 8px; border: 1px solid #2e8b57; border-radius: 5px; font-size: 1em; background-color: #f7fff7; color: #2f4f2f;" />
       
-      <label for="mensaje">Mensaje</label>
-      <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" required></textarea>
+      <label for="mensaje" style="font-weight: bold;">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" required style="padding: 8px; border: 1px solid #2e8b57; border-radius: 5px; font-size: 1em; background-color: #f7fff7; color: #2f4f2f; min-height: 80px; resize: vertical;"></textarea>
       
-      <button type="submit">Enviar</button>
+      <button type="submit" style="background-color: #2e8b57; color: white; border: none; padding: 12px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 1em; transition: background-color 0.3s ease;">Enviar</button>
     </form>
   </section>
 
   <footer>
-    <p class="contact-email">Contacto: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
-    <div class="redes">
+    <p class="contact-email" style="font-weight: bold; margin-bottom: 8px; color: #2f4f2f;">Contacto: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
+    <div class="redes" style="margin-bottom: 20px;">
       🌐 Síguenos:
-      <a href="https://www.instagram.com/lifepanamaorg" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
-      <a href="https://www.facebook.com/lifepanamaorg" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
-      <a href="https://wa.me/50764738689" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+      <a href="https://www.instagram.com/lifepanamaorg" target="_blank" rel="noopener noreferrer" style="margin: 0 10px; text-decoration: none; color: #2e8b57; font-weight: bold;">📸 Instagram</a>
+      <a href="https://www.facebook.com/lifepanamaorg" target="_blank" rel="noopener noreferrer" style="margin: 0 10px; text-decoration: none; color: #2e8b57; font-weight: bold;">📘 Facebook</a>
+      <a href="https://wa.me/50764738689" target="_blank" rel="noopener noreferrer" style="margin: 0 10px; text-decoration: none; color: #2e8b57; font-weight: bold;">💬 WhatsApp</a>
     </div>
     <!-- Licencias al final -->
-    <p style="margin-top: 20px; font-size: 0.9em; color: #4a6d4a;">
+    <p style="font-size: 0.9em; color: #4a6d4a; margin-top: 0;">
       Licencias:<br/>
       • Código fuente: MIT License<br/>
       • Contenido educativo y gráfico: CC BY-NC 4.0
     </p>
   </footer>
-
-  <!-- Google Translate -->
-  <div id="google_translate_element" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
-
-  <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'es',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-  </script>
-
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-</html>
