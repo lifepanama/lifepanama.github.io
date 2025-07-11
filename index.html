@@ -2,155 +2,341 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Life Panamá</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; background-color: #f2f2f2; }
-    header, footer { background-color: #006644; color: white; text-align: center; padding: 1em; }
-    nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
-    section { padding: 20px; }
-    .gallery-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .gallery img { width: 100%; max-width: 300px; border-radius: 10px; cursor: pointer; transition: transform 0.2s; }
-    .gallery img:hover { transform: scale(1.05); }
-    .form-container { background: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; }
-    .form-container input, .form-container textarea { width: 100%; margin-bottom: 10px; padding: 10px; }
-    .form-container button { padding: 10px 20px; background-color: #006644; color: white; border: none; cursor: pointer; }
-    .share-buttons a { margin: 5px; text-decoration: none; color: #006644; font-weight: bold; }
-    iframe { border-radius: 10px; margin: 10px 0; width: 100%; max-width: 560px; height: 315px; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f5e6;
+      margin: 0;
+      padding: 20px;
+      color: #2f4f2f;
+    }
+    header {
+      background-color: #2e8b57;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      margin-top: 30px;
+      line-height: 1.5;
+    }
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+      background-color: #d0e6d0;
+      color: #2f4f2f;
+    }
+    .redes a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #2e8b57;
+      font-weight: bold;
+    }
+    .redes a:hover {
+      text-decoration: underline;
+    }
+    .boton-donar {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #2e8b57;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    .boton-donar:hover {
+      background-color: #246f47;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #2e8b57;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #cfead1;
+    }
+    .info-section ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    .info-section a.project-link {
+      color: #2e8b57;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .info-section a.project-link:hover {
+      text-decoration: underline;
+    }
 
-    /* Lightbox estilo básico */
-    #lightbox {
+    /* --- NUEVO: Estilos para calendario --- */
+    table.calendar thead th {
+      background-color: #2e8b57;
+      color: white;
+      font-weight: bold;
+    }
+    table.calendar td.evento {
+      background-color: #d0f0d0;
+      font-weight: bold;
+      cursor: default;
+    }
+
+    /* --- NUEVO: Galería cuadrícula --- */
+    #galeria {
+      background-color: #e6f5e6;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+    #galeria h2 {
+      text-align: center;
+      color: #2e8b57;
+    }
+    .grid-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .grid-galeria img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .grid-galeria img:hover {
+      transform: scale(1.05);
+      border-color: #2e8b57;
+    }
+
+    /* --- NUEVO: Lightbox básico --- */
+    #lightbox-overlay {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.8);
       display: none;
       justify-content: center;
       align-items: center;
-      z-index: 999;
+      z-index: 9999;
     }
-    #lightbox img {
-      max-width: 90%; max-height: 90%;
+    #lightbox-overlay img {
+      max-width: 90%;
+      max-height: 90%;
       border-radius: 10px;
+      box-shadow: 0 0 15px black;
+    }
+    #lightbox-overlay:target {
+      display: flex;
+    }
+
+    /* --- NUEVO: Contacto --- */
+    #contacto {
+      background-color: #e6f5e6;
+      padding: 20px 25px;
+      margin-top: 40px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      box-sizing: border-box;
+      color: #2f4f2f;
+    }
+    #contacto h2 {
+      text-align: center;
+      color: #2e8b57;
+      margin-bottom: 20px;
+    }
+    #form-contacto {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #form-contacto label {
+      font-weight: bold;
+    }
+    #form-contacto input[type="text"],
+    #form-contacto input[type="email"],
+    #form-contacto textarea {
+      padding: 8px;
+      border: 1px solid #2e8b57;
+      border-radius: 5px;
+      font-size: 1em;
+      resize: vertical;
+      color: #2f4f2f;
+      background-color: #f7fff7;
+    }
+    #form-contacto textarea {
+      min-height: 80px;
+    }
+    #form-contacto button {
+      background-color: #2e8b57;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+    #form-contacto button:hover {
+      background-color: #246f47;
+    }
+
+    /* Redes sociales debajo correo en footer */
+    footer p.contact-email {
+      margin-bottom: 8px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Life Panamá</h1>
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#objetivos">Objetivos</a>
-    <a href="#eventos">Eventos</a>
-    <a href="#colabora">Colabora</a>
-    <a href="#galeria">Galería</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-</header>
+  <header>
+    <h1>🌿 Life Panamá</h1>
+    <p>Organización para la conservación ambiental y ciencia ciudadana</p>
+  </header>
 
-<!-- Traductor -->
-<div id="google_translate_element" style="float: right; margin: 10px;"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
-  }
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <section class="info-section">
+    <h2>Life Panamá – Plataforma para la Conservación Ambiental</h2>
+    <p>Life Panamá es una iniciativa de divulgación científica, educación ambiental y acción comunitaria enfocada en la protección de ecosistemas, la limpieza de playas y la concientización ciudadana. Este sitio servirá como base para desarrollar una futura fundación sin fines de lucro.</p>
+  </section>
 
-<section id="sobre">
-  <h2>Sobre Life Panamá</h2>
-  <p>Somos una organización comprometida con la conservación ambiental, la divulgación científica y las limpiezas de playa en Panamá.</p>
-</section>
+  <section>
+    <h2>Sobre Nosotros</h2>
+    <p>Somos una organización enfocada en la conservación ambiental que realiza limpiezas de playa con participación comunitaria, actividades de educación ambiental y Divulgación de la ciencia ciudadana en Panamá.</p>
+    <p>Este sitio web fue creado para compartir nuestras iniciativas, conectar con voluntarios, promover la educación ambiental y facilitar donaciones para seguir desarrollando proyectos que protejan nuestros ecosistemas.</p>
+  </section>
 
-<section id="objetivos">
-  <h2>Objetivos</h2>
-  <ul>
-    <li>Conservar y proteger los ecosistemas marinos y terrestres.</li>
-    <li>Educar a la comunidad sobre prácticas sostenibles.</li>
-    <li>Promover la participación ciudadana en actividades ecológicas.</li>
-  </ul>
-</section>
+  <section class="info-section">
+    <h3>🎯 Objetivos</h3>
+    <ul>
+      <li>Promover la educación ambiental y la ciencia ciudadana</li>
+      <li>Organizar limpiezas de playa y campañas ecológicas</li>
+      <li>Publicar contenido educativo sobre biodiversidad, cambio climático y conservación</li>
+      <li>Recibir donaciones y vender productos solidarios</li>
+      <li>Aplicar a fondos internacionales para investigación y acción ambiental</li>
+    </ul>
+  </section>
 
-<section id="eventos">
-  <h2>Próximos Eventos</h2>
-  <ul>
-    <li>🌿 Limpieza de playa en Veracruz - 20 de julio, 8:00 a.m.</li>
-    <li>🧪 Taller de ciencia para niños - 27 de julio, 10:00 a.m.</li>
-  </ul>
-</section>
+  <!-- NUEVO: Calendario de Próximos eventos -->
+  <section>
+    <h2>Próximos eventos</h2>
+    <table class="calendar" aria-label="Calendario de próximos eventos">
+      <thead>
+        <tr>
+          <th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td><td></td><td>1</td><td class="evento" title="Limpieza de Playa">2</td><td>3</td><td>4</td><td>5</td>
+        </tr>
+        <tr>
+          <td>6</td><td>7</td><td>8</td><td>9</td><td class="evento" title="Taller Ambiental">10</td><td>11</td><td>12</td>
+        </tr>
+        <tr>
+          <td>13</td><td class="evento" title="Charla Científica">14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+        </tr>
+        <!-- Completa según eventos reales -->
+      </tbody>
+    </table>
+  </section>
 
-<section id="colabora">
-  <h2>Cómo Colaborar</h2>
-  <p>Tu apoyo puede hacer la diferencia. Puedes colaborar como voluntario o realizar una donación.</p>
-  <p>Únete a nuestras actividades y se parte del cambio positivo.</p>
-  <a href="mailto:lifepanamaorg@gmail.com?subject=Quiero colaborar con Life Panamá">
-    <button>Ser voluntario</button>
-  </a>
-  <br><br>
-  <p>Si deseas apoyar económicamente, puedes hacerlo aquí:</p>
-  <a href="https://www.paypal.com/donate" target="_blank">
-    <button>Donar</button>
-  </a>
-</section>
+  <!-- Botón donar -->
+  <section style="text-align:center; margin-top: 30px;">
+    <button class="boton-donar" onclick="window.open('https://www.paypal.com/donate', '_blank')">💚 Donar ahora</button>
+  </section>
 
-<section id="galeria">
-  <h2>Galería</h2>
+  <!-- NUEVO: Galería -->
+  <section id="galeria">
+    <h2>Galería</h2>
+    <div class="grid-galeria">
+      <a href="#img1"><img src="https://picsum.photos/id/1011/400/300" alt="Imagen 1"/></a>
+      <a href="#img2"><img src="https://picsum.photos/id/1015/400/300" alt="Imagen 2"/></a>
+      <a href="#img3"><img src="https://picsum.photos/id/1020/400/300" alt="Imagen 3"/></a>
+      <a href="#img4"><img src="https://picsum.photos/id/1024/400/300" alt="Imagen 4"/></a>
+      <a href="#img5"><img src="https://picsum.photos/id/1031/400/300" alt="Imagen 5"/></a>
+      <a href="#img6"><img src="https://picsum.photos/id/1035/400/300" alt="Imagen 6"/></a>
+    </div>
+  </section>
 
-  <div class="gallery-container gallery">
-    <img src="https://via.placeholder.com/300x200.png?text=Foto+1" alt="Foto 1" onclick="openLightbox(this.src)">
-    <img src="https://via.placeholder.com/300x200.png?text=Foto+2" alt="Foto 2" onclick="openLightbox(this.src)">
-    <img src="https://via.placeholder.com/300x200.png?text=Foto+3" alt="Foto 3" onclick="openLightbox(this.src)">
+  <!-- Lightbox Overlay -->
+  <div id="lightbox-overlay" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="" alt="Ampliación de imagen" />
   </div>
 
-  <div id="lightbox" onclick="closeLightbox()">
-    <img src="" id="lightbox-img" alt="Imagen ampliada">
-  </div>
+  <script>
+    // Lightbox script simple
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('#galeria a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const imgSrc = link.querySelector('img').src.replace('/400/300', '/1200/900');
+        lightboxImg.src = imgSrc;
+        lightboxOverlay.style.display = 'flex';
+      });
+    });
+  </script>
 
-  <h3>Video en vivo desde Facebook</h3>
-  <iframe 
-    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/lifepanamaorg/videos/123456789"
-    allowfullscreen>
-  </iframe>
-
-  <div class="share-buttons">
-    <h4>Compartir esta sección:</h4>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://lifepanama.github.io" target="_blank">📘 Compartir en Facebook</a>
-    <a href="https://twitter.com/intent/tweet?text=Conoce%20la%20galería%20de%20Life%20Panamá%20https://lifepanama.github.io" target="_blank">🐦 Compartir en X (Twitter)</a>
-    <a href="https://api.whatsapp.com/send?text=Galería%20Life%20Panamá%20https://lifepanama.github.io" target="_blank">📱 Compartir en WhatsApp</a>
-  </div>
-</section>
-
-<section id="contacto">
-  <h2>Contacto</h2>
-  <div class="form-container">
-    <form action="mailto:lifepanamaorg@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="Nombre" placeholder="Tu nombre" required>
-      <input type="email" name="Correo" placeholder="Tu correo electrónico" required>
-      <textarea name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-      <button type="submit">Enviar mensaje</button>
+  <!-- NUEVO: Sección Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form id="form-contacto" action="mailto:lifepanamaorg@gmail.com" method="post" enctype="text/plain" novalidate>
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+      
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+      
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" required></textarea>
+      
+      <button type="submit">Enviar</button>
     </form>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Life Panamá | Todos los derechos reservados.</p>
-  <p>
-    <a href="https://www.facebook.com/lifepanamaorg" style="color:white;">Facebook</a>
-  </p>
-  <p>Contenido bajo licencia Creative Commons BY-NC-SA 4.0</p>
-</footer>
+  <footer>
+    <p class="contact-email">Contacto: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
+    <div class="redes">
+      🌐 Síguenos:
+      <a href="https://www.instagram.com/lifepanamaorg" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+      <a href="https://www.facebook.com/lifepanamaorg" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
+      <a href="https://wa.me/50764738689" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+    </div>
+    <!-- Licencias al final -->
+    <p style="margin-top: 20px; font-size: 0.9em; color: #4a6d4a;">
+      Licencias:<br/>
+      • Código fuente: MIT License<br/>
+      • Contenido educativo y gráfico: CC BY-NC 4.0
+    </p>
+  </footer>
 
-<!-- Lightbox script -->
-<script>
-  function openLightbox(src) {
-    document.getElementById('lightbox').style.display = 'flex';
-    document.getElementById('lightbox-img').src = src;
+  <!-- Google Translate -->
+  <div id="google_translate_element" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
+
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
   }
-  function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-  }
-</script>
+  </script>
+
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
