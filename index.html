@@ -9,12 +9,30 @@
     header, footer { background-color: #006644; color: white; text-align: center; padding: 1em; }
     nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
     section { padding: 20px; }
-    .gallery img { width: 100%; max-width: 300px; margin: 10px; border-radius: 10px; }
+    .gallery-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .gallery img { width: 100%; max-width: 300px; border-radius: 10px; cursor: pointer; transition: transform 0.2s; }
+    .gallery img:hover { transform: scale(1.05); }
     .form-container { background: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; }
     .form-container input, .form-container textarea { width: 100%; margin-bottom: 10px; padding: 10px; }
     .form-container button { padding: 10px 20px; background-color: #006644; color: white; border: none; cursor: pointer; }
-    .share-buttons a { margin: 5px; text-decoration: none; color: #006644; }
-    iframe { border-radius: 10px; margin: 10px 0; }
+    .share-buttons a { margin: 5px; text-decoration: none; color: #006644; font-weight: bold; }
+    iframe { border-radius: 10px; margin: 10px 0; width: 100%; max-width: 560px; height: 315px; }
+
+    /* Lightbox estilo básico */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    #lightbox img {
+      max-width: 90%; max-height: 90%;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -79,20 +97,27 @@
 <section id="galeria">
   <h2>Galería</h2>
 
-  <div class="gallery">
-    <img src="https://via.placeholder.com/300x200.png?text=Foto+1" alt="Foto 1">
-    <img src="https://via.placeholder.com/300x200.png?text=Foto+2" alt="Foto 2">
-    <img src="https://via.placeholder.com/300x200.png?text=Foto+3" alt="Foto 3">
+  <div class="gallery-container gallery">
+    <img src="https://via.placeholder.com/300x200.png?text=Foto+1" alt="Foto 1" onclick="openLightbox(this.src)">
+    <img src="https://via.placeholder.com/300x200.png?text=Foto+2" alt="Foto 2" onclick="openLightbox(this.src)">
+    <img src="https://via.placeholder.com/300x200.png?text=Foto+3" alt="Foto 3" onclick="openLightbox(this.src)">
   </div>
 
-  <h3>Videos en vivo desde Facebook</h3>
-  <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/lifepanamaorg/videos/123456789" width="400" height="300" allowfullscreen></iframe>
+  <div id="lightbox" onclick="closeLightbox()">
+    <img src="" id="lightbox-img" alt="Imagen ampliada">
+  </div>
+
+  <h3>Video en vivo desde Facebook</h3>
+  <iframe 
+    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/lifepanamaorg/videos/123456789"
+    allowfullscreen>
+  </iframe>
 
   <div class="share-buttons">
     <h4>Compartir esta sección:</h4>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://lifepanama.github.io" target="_blank">📘 Facebook</a>
-    <a href="https://twitter.com/intent/tweet?text=Mira%20la%20galería%20de%20Life%20Panamá%20https://lifepanama.github.io" target="_blank">🐦 X (Twitter)</a>
-    <a href="https://api.whatsapp.com/send?text=Galería%20de%20Life%20Panamá%20https://lifepanama.github.io" target="_blank">📱 WhatsApp</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://lifepanama.github.io" target="_blank">📘 Compartir en Facebook</a>
+    <a href="https://twitter.com/intent/tweet?text=Conoce%20la%20galería%20de%20Life%20Panamá%20https://lifepanama.github.io" target="_blank">🐦 Compartir en X (Twitter)</a>
+    <a href="https://api.whatsapp.com/send?text=Galería%20Life%20Panamá%20https://lifepanama.github.io" target="_blank">📱 Compartir en WhatsApp</a>
   </div>
 </section>
 
@@ -115,6 +140,17 @@
   </p>
   <p>Contenido bajo licencia Creative Commons BY-NC-SA 4.0</p>
 </footer>
+
+<!-- Lightbox script -->
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox').style.display = 'flex';
+    document.getElementById('lightbox-img').src = src;
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
