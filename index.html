@@ -231,7 +231,7 @@
   </section>
 
   <!-- NUEVO: Calendario de Próximos eventos -->
- <section id="proximos-eventos">
+<section id="proximos-eventos">
   <h2 style="text-align:center; color:#2e8b57; margin-bottom: 10px;">Próximos eventos</h2>
   <div id="calendario-dinamico" style="max-width: 600px; margin: 0 auto;"></div>
 
@@ -247,13 +247,62 @@
   </div>
 </section>
 
+<section>
+  <h2>¿Cómo colaborar?</h2>
+  <p style="max-width:600px;">¿Quieres unirte como voluntario? Escríbenos a: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
+  <p style="max-width:600px;">¿Quieres apoyarnos con una donación? Tu ayuda es fundamental.</p>
+  <a href="https://www.paypal.com/donate" target="_blank" class="boton-donar">💚 Donar ahora</a>
+</section>
+
+<section>
+  <h2>Contáctanos</h2>
+  <form style="max-width: 600px;">
+    <label for="nombre">Nombre:</label><br />
+    <input type="text" id="nombre" name="nombre" style="width: 100%; padding: 8px;"><br /><br />
+    <label for="correo">Correo electrónico:</label><br />
+    <input type="email" id="correo" name="correo" style="width: 100%; padding: 8px;"><br /><br />
+    <label for="mensaje">Mensaje:</label><br />
+    <textarea id="mensaje" name="mensaje" rows="4" style="width: 100%; padding: 8px;"></textarea><br /><br />
+    <button type="submit" style="background-color: #2e8b57; color: white; padding: 10px 20px; border: none; border-radius: 8px;">Enviar</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Life Panamá • <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
+  <div class="redes">
+    🌐 Síguenos:
+    <a href="https://www.instagram.com/lifepanamaorg" target="_blank">📸 Instagram</a>
+    <a href="https://www.facebook.com/lifepanamaorg" target="_blank">📘 Facebook</a>
+    <a href="https://wa.me/50764738689" target="_blank">💬 WhatsApp</a>
+  </div>
+  <div style="margin-top: 20px;">
+    <h3>📄 Licencias</h3>
+    <ul>
+      <li>El código fuente de este sitio está licenciado bajo <strong>MIT License</strong></li>
+      <li>El contenido educativo y gráfico está bajo <strong>CC BY-NC 4.0</strong></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Google Translate -->
+<div id="google_translate_element" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Calendario dinámico -->
 <script>
-  // Datos de eventos: formato YYYY-MM-DD, título, lugar y descripción
   const eventos = [
     {fecha: '2025-07-02', titulo: 'Limpieza de Playa', lugar: 'Playa Veracruz', descripcion: 'Únete a la limpieza comunitaria para proteger nuestras playas.'},
     {fecha: '2025-07-10', titulo: 'Taller Ambiental', lugar: 'Centro Cultural', descripcion: 'Aprende sobre prácticas sostenibles y conservación.'},
-    {fecha: '2025-07-14', titulo: 'Charla Científica', lugar: 'Universidad de Panamá', descripcion: 'Conoce más sobre ciencia ciudadana y biodiversidad.'},
-    // Agrega más eventos aquí...
+    {fecha: '2025-07-14', titulo: 'Charla Científica', lugar: 'Universidad de Panamá', descripcion: 'Conoce más sobre ciencia ciudadana y biodiversidad.'}
   ];
 
   function crearCalendario() {
@@ -264,11 +313,9 @@
     const mes = hoy.getMonth();
     const anio = hoy.getFullYear();
 
-    // Nombres días semana
     const diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-
-    // Título mes y año
     const mesesNombres = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
     const titulo = document.createElement('h3');
     titulo.textContent = `${mesesNombres[mes]} ${anio}`;
     titulo.style.color = '#2e8b57';
@@ -276,7 +323,6 @@
     titulo.style.marginBottom = '10px';
     contenedor.appendChild(titulo);
 
-    // Crear tabla calendario
     const tabla = document.createElement('table');
     tabla.style.borderCollapse = 'collapse';
     tabla.style.width = '100%';
@@ -286,7 +332,6 @@
     tabla.style.fontFamily = 'Arial, sans-serif';
     tabla.style.border = '1px solid #2e8b57';
 
-    // Crear encabezado de días semana
     const thead = document.createElement('thead');
     const trHead = document.createElement('tr');
     diasSemana.forEach(dia => {
@@ -301,22 +346,15 @@
     thead.appendChild(trHead);
     tabla.appendChild(thead);
 
-    // Crear cuerpo con días del mes
     const tbody = document.createElement('tbody');
-
-    // Primer día del mes
     const primerDia = new Date(anio, mes, 1);
-    // Último día del mes
     const ultimoDia = new Date(anio, mes + 1, 0);
     const numDiasMes = ultimoDia.getDate();
-
-    // Ajustar índice para que lunes sea 0 (JS domingo es 0)
-    let diaSemanaPrimerDia = primerDia.getDay(); // domingo=0,...sábado=6
+    let diaSemanaPrimerDia = primerDia.getDay();
     diaSemanaPrimerDia = diaSemanaPrimerDia === 0 ? 6 : diaSemanaPrimerDia - 1;
 
     let fila = document.createElement('tr');
 
-    // Rellenar celdas vacías antes del primer día
     for (let i = 0; i < diaSemanaPrimerDia; i++) {
       const td = document.createElement('td');
       td.style.border = '1px solid #2e8b57';
@@ -338,14 +376,12 @@
       td.style.cursor = 'default';
       td.style.position = 'relative';
 
-      // Crear número de día
       const numDia = document.createElement('div');
       numDia.textContent = dia;
       numDia.style.fontWeight = 'bold';
       numDia.style.marginBottom = '6px';
       td.appendChild(numDia);
 
-      // Buscar evento para este día
       const fechaStr = `${anio}-${String(mes + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
       const evento = eventos.find(ev => ev.fecha === fechaStr);
 
@@ -353,7 +389,6 @@
         td.style.backgroundColor = '#d0f0d0';
         td.style.cursor = 'pointer';
 
-        // Mostrar título evento debajo número día
         const detalle = document.createElement('div');
         detalle.textContent = evento.titulo;
         detalle.style.fontSize = '0.85em';
@@ -361,7 +396,6 @@
         detalle.style.lineHeight = '1.2em';
         td.appendChild(detalle);
 
-        // Al hacer clic mostrar modal con detalles completos
         td.addEventListener('click', () => {
           document.getElementById('modal-titulo').textContent = evento.titulo;
           document.getElementById('modal-lugar').textContent = evento.lugar;
@@ -373,7 +407,6 @@
       fila.appendChild(td);
     }
 
-    // Completar la última fila con celdas vacías si faltan para 7 días
     while (fila.children.length < 7) {
       const td = document.createElement('td');
       td.style.border = '1px solid #2e8b57';
@@ -386,86 +419,13 @@
     contenedor.appendChild(tabla);
   }
 
-  // Función para cerrar modal
   document.getElementById('cerrar-modal').addEventListener('click', () => {
     document.getElementById('modal-evento').style.display = 'none';
   });
 
-  // Crear calendario al cargar la página
   window.addEventListener('DOMContentLoaded', crearCalendario);
 </script>
 
-  <!-- NUEVO: Galería -->
-  <section id="galeria">
-    <h2>Galería</h2>
-    <div class="grid-galeria">
-      <a href="#img1"><img src="https://picsum.photos/id/1011/400/300" alt="Imagen 1"/></a>
-      <a href="#img2"><img src="https://picsum.photos/id/1015/400/300" alt="Imagen 2"/></a>
-      <a href="#img3"><img src="https://picsum.photos/id/1020/400/300" alt="Imagen 3"/></a>
-      <a href="#img4"><img src="https://picsum.photos/id/1024/400/300" alt="Imagen 4"/></a>
-      <a href="#img5"><img src="https://picsum.photos/id/1031/400/300" alt="Imagen 5"/></a>
-      <a href="#img6"><img src="https://picsum.photos/id/1035/400/300" alt="Imagen 6"/></a>
-    </div>
-  </section>
+</body>
+</html>
 
-  <!-- Lightbox Overlay -->
-  <div id="lightbox-overlay" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="" alt="Ampliación de imagen" />
-  </div>
-
-  <script>
-    // Lightbox script simple
-    const lightboxOverlay = document.getElementById('lightbox-overlay');
-    const lightboxImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('#galeria a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const imgSrc = link.querySelector('img').src.replace('/400/300', '/1200/900');
-        lightboxImg.src = imgSrc;
-        lightboxOverlay.style.display = 'flex';
-      });
-    });
-  </script>
-
-  <!-- NUEVA: Cómo colaborar -->
-  <section id="como-colaborar" style="margin-top: 40px; padding-left: 20px; color: #2f4f2f; max-width: 900px;">
-    <h2>¿Cómo colaborar?</h2>
-    <p>¿Quieres unirte como voluntario? Escríbenos a: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
-    <p>¿Quieres apoyarnos con una donación? Tu ayuda es fundamental.</p>
-
-    <!-- Botón donar justo aquí -->
-    <button class="boton-donar" onclick="window.open('https://www.paypal.com/donate', '_blank')">💚 Donar ahora</button>
-  </section>
-
-  <!-- NUEVO: Sección Contacto -->
-  <section id="contacto" style="margin-top: 50px;">
-    <h2>Contacto</h2>
-    <form id="form-contacto" action="mailto:lifepanamaorg@gmail.com" method="post" enctype="text/plain" novalidate style="max-width: 500px; margin-left:auto; margin-right:auto; display:flex; flex-direction: column; gap:15px; color: #2f4f2f;">
-      <label for="nombre" style="font-weight: bold;">Nombre</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required style="padding: 8px; border: 1px solid #2e8b57; border-radius: 5px; font-size: 1em; background-color: #f7fff7; color: #2f4f2f;" />
-      
-      <label for="email" style="font-weight: bold;">Correo electrónico</label>
-      <input type="email" id="email" name="email" placeholder="tu@email.com" required style="padding: 8px; border: 1px solid #2e8b57; border-radius: 5px; font-size: 1em; background-color: #f7fff7; color: #2f4f2f;" />
-      
-      <label for="mensaje" style="font-weight: bold;">Mensaje</label>
-      <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" required style="padding: 8px; border: 1px solid #2e8b57; border-radius: 5px; font-size: 1em; background-color: #f7fff7; color: #2f4f2f; min-height: 80px; resize: vertical;"></textarea>
-      
-      <button type="submit" style="background-color: #2e8b57; color: white; border: none; padding: 12px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 1em; transition: background-color 0.3s ease;">Enviar</button>
-    </form>
-  </section>
-
-  <footer>
-    <p class="contact-email" style="font-weight: bold; margin-bottom: 8px; color: #2f4f2f;">Contacto: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
-    <div class="redes" style="margin-bottom: 20px;">
-      🌐 Síguenos:
-      <a href="https://www.instagram.com/lifepanamaorg" target="_blank" rel="noopener noreferrer" style="margin: 0 10px; text-decoration: none; color: #2e8b57; font-weight: bold;">📸 Instagram</a>
-      <a href="https://www.facebook.com/lifepanamaorg" target="_blank" rel="noopener noreferrer" style="margin: 0 10px; text-decoration: none; color: #2e8b57; font-weight: bold;">📘 Facebook</a>
-      <a href="https://wa.me/50764738689" target="_blank" rel="noopener noreferrer" style="margin: 0 10px; text-decoration: none; color: #2e8b57; font-weight: bold;">💬 WhatsApp</a>
-    </div>
-    <!-- Licencias al final -->
-    <p style="font-size: 0.9em; color: #4a6d4a; margin-top: 0;">
-      Licencias:<br/>
-      • Código fuente: MIT License<br/>
-      • Contenido educativo y gráfico: CC BY-NC 4.0
-    </p>
-  </footer>
