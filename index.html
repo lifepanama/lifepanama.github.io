@@ -402,7 +402,7 @@ html {
       </tr>
     </tbody>
   </table>
-
+   
   <style>
     table.calendar {
       border-collapse: collapse;
@@ -443,6 +443,76 @@ html {
     td.evento:hover {
       background-color: #a2dba2;
     }
+    /* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  header {
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.3em;
+  }
+
+  section {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .info-section ul {
+    padding-left: 20px;
+  }
+
+  table, th, td {
+    font-size: 14px;
+  }
+
+  .grid-galeria {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .boton-donar {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+
+  footer {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .redes a {
+    display: block;
+    margin: 5px 0;
+  }
+
+  nav ul.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+  }
+
+  nav ul.menu li {
+    margin: 0;
+  }
+
+  nav ul.menu a {
+    font-size: 16px;
+  }
+
+  #contacto,
+  #form-contacto {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
   </style>
 </section>
 
