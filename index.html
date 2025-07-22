@@ -78,6 +78,40 @@
     .info-section a.project-link:hover {
       text-decoration: underline;
     }
+nav {
+  margin-top: 15px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 5px;
+  background-color: #246f47;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover,
+.menu a:focus {
+  background-color: #1e5934;
+  outline: none;
+}
+
+/* Opcional: scroll suave */
+html {
+  scroll-behavior: smooth;
+}
 
     /* --- NUEVO: Estilos para calendario --- */
     table.calendar thead th {
@@ -206,6 +240,17 @@
   <header>
     <h1>🌿 Life Panamá</h1>
     <p>Organización para la conservación ambiental y ciencia ciudadana</p>
+
+    <nav>
+  <ul class="menu">
+    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+    <li><a href="#objetivos">Objetivos</a></li>
+    <li><a href="#proximos-eventos">Próximos Eventos</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#como-colaborar">Cómo Colaborar</a></li>
+    <li><a href="#Contacto">Contacto</a></li>
+  </ul>
+</nav>
   </header>
 
   <section class="info-section">
@@ -213,13 +258,13 @@
     <p>Life Panamá es una iniciativa de divulgación científica, educación ambiental y acción comunitaria enfocada en la protección de ecosistemas, la limpieza de playas y la concientización ciudadana. Este sitio servirá como base para desarrollar una futura fundación sin fines de lucro.</p>
   </section>
 
-  <section>
+  <section id="sobre-nosotros">
     <h2>Sobre Nosotros</h2>
     <p>Somos una organización enfocada en la conservación ambiental que realiza limpiezas de playa con participación comunitaria, actividades de educación ambiental y Divulgación de la ciencia ciudadana en Panamá.</p>
     <p>Este sitio web fue creado para compartir nuestras iniciativas, conectar con voluntarios, promover la educación ambiental y facilitar donaciones para seguir desarrollando proyectos que protejan nuestros ecosistemas.</p>
   </section>
 
-  <section class="info-section">
+<section id="objetivos" class="info-section">
     <h3>🎯 Objetivos</h3>
     <ul>
       <li>Promover la educación ambiental y la ciencia ciudadana</li>
@@ -231,7 +276,7 @@
   </section>
 
   <!-- NUEVO: Calendario de Próximos eventos -->
-  <section>
+ <section id="proximos-eventos">
   <h2 style="text-align:center; color:#2e8b57; margin-bottom: 5px;">Próximos eventos - Julio 2025</h2>
   <table class="calendar" aria-label="Calendario de próximos eventos" style="max-width: 600px; margin-left:auto; margin-right:auto; border:1px solid #2e8b57;">
     <thead>
