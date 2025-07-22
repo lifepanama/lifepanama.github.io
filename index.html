@@ -78,8 +78,6 @@
     .info-section a.project-link:hover {
       text-decoration: underline;
     }
-
-    /* --- NUEVO: Estilos para calendario --- */
     table.calendar thead th {
       background-color: #2e8b57;
       color: white;
@@ -90,8 +88,6 @@
       font-weight: bold;
       cursor: default;
     }
-
-    /* --- NUEVO: Galería cuadrícula --- */
     #galeria {
       background-color: #e6f5e6;
       padding: 15px;
@@ -119,8 +115,6 @@
       transform: scale(1.05);
       border-color: #2e8b57;
     }
-
-    /* --- NUEVO: Lightbox básico --- */
     #lightbox-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -139,8 +133,6 @@
     #lightbox-overlay:target {
       display: flex;
     }
-
-    /* --- NUEVO: Contacto --- */
     #contacto {
       background-color: #e6f5e6;
       padding: 20px 25px;
@@ -193,285 +185,56 @@
     #form-contacto button:hover {
       background-color: #246f47;
     }
-
-    /* Redes sociales debajo correo en footer */
     footer p.contact-email {
       margin-bottom: 8px;
       font-weight: bold;
     }
+    .menu-nav {
+      background-color: #2e8b57;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .menu-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .menu-nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .menu-nav a:hover {
+      background-color: #246f47;
+    }
   </style>
 </head>
-<body>
-
+<body id="top">
   <header>
     <h1>🌿 Life Panamá</h1>
     <p>Organización para la conservación ambiental y ciencia ciudadana</p>
   </header>
 
-  <section class="info-section">
-    <h2>Life Panamá – Plataforma para la Conservación Ambiental</h2>
-    <p>Life Panamá es una iniciativa de divulgación científica, educación ambiental y acción comunitaria enfocada en la protección de ecosistemas, la limpieza de playas y la concientización ciudadana. Este sitio servirá como base para desarrollar una futura fundación sin fines de lucro.</p>
-  </section>
-
-  <section>
-    <h2>Sobre Nosotros</h2>
-    <p>Somos una organización enfocada en la conservación ambiental que realiza limpiezas de playa con participación comunitaria, actividades de educación ambiental y Divulgación de la ciencia ciudadana en Panamá.</p>
-    <p>Este sitio web fue creado para compartir nuestras iniciativas, conectar con voluntarios, promover la educación ambiental y facilitar donaciones para seguir desarrollando proyectos que protejan nuestros ecosistemas.</p>
-  </section>
-
-  <section class="info-section">
-    <h3>🎯 Objetivos</h3>
+  <nav class="menu-nav">
     <ul>
-      <li>Promover la educación ambiental y la ciencia ciudadana</li>
-      <li>Organizar limpiezas de playa y campañas ecológicas</li>
-      <li>Publicar contenido educativo sobre biodiversidad, cambio climático y conservación</li>
-      <li>Recibir donaciones y vender productos solidarios</li>
-      <li>Aplicar a fondos internacionales para investigación y acción ambiental</li>
+      <li><a href="#top">Inicio</a></li>
+      <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+      <li><a href="#objetivos">Objetivos</a></li>
+      <li><a href="#proximos-eventos">Próximos Eventos</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#como-colaborar">Colaborar</a></li>
+      <li><a href="#Contacto">Contacto</a></li>
     </ul>
-  </section>
+  </nav>
 
-  <!-- NUEVO: Calendario de Próximos eventos -->
-  <section>
-  <h2 style="text-align:center; color:#2e8b57; margin-bottom: 5px;">Próximos eventos - Julio 2025</h2>
-  <table class="calendar" aria-label="Calendario de próximos eventos" style="max-width: 600px; margin-left:auto; margin-right:auto; border:1px solid #2e8b57;">
-    <thead>
-      <tr>
-        <th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th><th>Domingo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td><td></td>
-        <td>
-          <div class="fecha-num">1</div>
-        </td>
-        <td class="evento">
-          <div class="fecha-num">2</div>
-          <div class="evento-detalle">
-            Limpieza de Playa<br/>
-            Playa Veracruz
-          </div>
-        </td>
-        <td>
-          <div class="fecha-num">3</div>
-        </td>
-        <td>
-          <div class="fecha-num">4</div>
-        </td>
-        <td>
-          <div class="fecha-num">5</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">6</div>
-        </td>
-        <td>
-          <div class="fecha-num">7</div>
-        </td>
-        <td>
-          <div class="fecha-num">8</div>
-        </td>
-        <td>
-          <div class="fecha-num">9</div>
-        </td>
-        <td class="evento">
-          <div class="fecha-num">10</div>
-          <div class="evento-detalle">
-            Taller Ambiental
-          </div>
-        </td>
-        <td>
-          <div class="fecha-num">11</div>
-        </td>
-        <td>
-          <div class="fecha-num">12</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">13</div>
-        </td>
-        <td class="evento">
-          <div class="fecha-num">14</div>
-          <div class="evento-detalle">
-            Charla Científica
-          </div>
-        </td>
-        <td>
-          <div class="fecha-num">15</div>
-        </td>
-        <td>
-          <div class="fecha-num">16</div>
-        </td>
-        <td>
-          <div class="fecha-num">17</div>
-        </td>
-        <td>
-          <div class="fecha-num">18</div>
-        </td>
-        <td>
-          <div class="fecha-num">19</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">20</div>
-        </td>
-        <td>
-          <div class="fecha-num">21</div>
-        </td>
-        <td>
-          <div class="fecha-num">22</div>
-        </td>
-        <td>
-          <div class="fecha-num">23</div>
-        </td>
-        <td>
-          <div class="fecha-num">24</div>
-        </td>
-        <td>
-          <div class="fecha-num">25</div>
-        </td>
-        <td>
-          <div class="fecha-num">26</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">27</div>
-        </td>
-        <td>
-          <div class="fecha-num">28</div>
-        </td>
-        <td>
-          <div class="fecha-num">29</div>
-        </td>
-        <td>
-          <div class="fecha-num">30</div>
-        </td>
-        <td>
-          <div class="fecha-num">31</div>
-        </td>
-        <td></td><td></td>
-      </tr>
-    </tbody>
-  </table>
 
-  <style>
-    table.calendar {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 600px;
-      margin-left:auto;
-      margin-right:auto;
-      border: 1px solid #2e8b57;
-      color: #2f4f2f;
-      font-family: Arial, sans-serif;
-    }
-    table.calendar th, table.calendar td {
-      border: 1px solid #2e8b57;
-      padding: 8px;
-      vertical-align: top;
-      text-align: center;
-    }
-    table.calendar thead th {
-      background-color: #2e8b57;
-      color: white;
-      font-weight: bold;
-      padding: 12px;
-    }
-    .fecha-num {
-      font-weight: bold;
-      font-size: 1.1em;
-      margin-bottom: 6px;
-    }
-    td.evento {
-      background-color: #d0f0d0;
-      cursor: default;
-    }
-    .evento-detalle {
-      font-size: 0.85em;
-      color: #236323;
-      line-height: 1.2em;
-    }
-    td.evento:hover {
-      background-color: #a2dba2;
-    }
-  </style>
-</section>
-
-  <!-- NUEVO: Galería -->
-  <section id="galeria">
-    <h2>Galería</h2>
-    <div class="grid-galeria">
-      <a href="#img1"><img src="https://picsum.photos/id/1011/400/300" alt="Imagen 1"/></a>
-      <a href="#img2"><img src="https://picsum.photos/id/1015/400/300" alt="Imagen 2"/></a>
-      <a href="#img3"><img src="https://picsum.photos/id/1020/400/300" alt="Imagen 3"/></a>
-      <a href="#img4"><img src="https://picsum.photos/id/1024/400/300" alt="Imagen 4"/></a>
-      <a href="#img5"><img src="https://picsum.photos/id/1031/400/300" alt="Imagen 5"/></a>
-      <a href="#img6"><img src="https://picsum.photos/id/1035/400/300" alt="Imagen 6"/></a>
-    </div>
-  </section>
-
-  <!-- Lightbox Overlay -->
-  <div id="lightbox-overlay" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="" alt="Ampliación de imagen" />
-  </div>
-
-  <script>
-    // Lightbox script simple
-    const lightboxOverlay = document.getElementById('lightbox-overlay');
-    const lightboxImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('#galeria a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const imgSrc = link.querySelector('img').src.replace('/400/300', '/1200/900');
-        lightboxImg.src = imgSrc;
-        lightboxOverlay.style.display = 'flex';
-      });
-    });
-  </script>
-
-  <!-- NUEVA: Cómo colaborar -->
-  <section id="como-colaborar" style="margin-top: 40px; padding-left: 20px; color: #2f4f2f; max-width: 900px;">
-    <h2>¿Cómo colaborar?</h2>
-    <p>¿Quieres unirte como voluntario? Escríbenos a: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
-    <p>¿Quieres apoyarnos con una donación? Tu ayuda es fundamental.</p>
-
-    <!-- Botón donar justo aquí -->
-    <button class="boton-donar" onclick="window.open('https://www.paypal.com/donate', '_blank')">💚 Donar ahora</button>
-  </section>
-
-<!-- NUEVO: Sección Contacto -->
-<section id="Contacto" style="margin-top: 50px;padding-left: 20px;">
-  <h2>Contacto</h2>
- <form id="form-contacto" action="mailto:lifepanamaorg@gmail.com" method="post" enctype="text/plain" novalidate style="max-width: 500px; margin-left: 0; display:flex; flex-direction: column; gap:15px; color: #2f4f2f;">
-    <label for="nombre" style="font-weight: bold;">Nombre</label>
-    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required style="padding-left: 20px; border: 1px solid #2e8b57; border-radius: 5px; font-size: 1em; background-color: #f7fff7; color: #2f4f2f;" />
-    
-    <label for="email" style="font-weight: bold;">Correo electrónico</label>
-    <input type="email" id="email" name="email" placeholder="tu@email.com" required style="padding-left: 20px; border: 1px solid #2e8b57; border-radius: 5px; font-size: 1em; background-color: #f7fff7; color: #2f4f2f;" />
-    
-    <label for="mensaje" style="font-weight: bold;">Mensaje</label>
-    <textarea id="mensaje" name="mensaje" placeholder="Escribe tu pregunta aquí" required style="padding-left: 20px; border: 1px solid #2e8b57; border-radius: 5px; font-size: 1em; background-color: #f7fff7; color: #2f4f2f; min-height: 80px; resize: vertical;"></textarea>
-    
-    <button type="submit" style="background-color: #2e8b57; color: white; border: none; padding-left: 20px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 1em; transition: background-color 0.3s ease;">Enviar</button>
-  </form>
-</section>
-
-  <footer>
-    <p class="contact-email" style="font-weight: bold; margin-bottom: 8px; color: #2f4f2f;">Contacto: <a href="mailto:lifepanamaorg@gmail.com">lifepanamaorg@gmail.com</a></p>
-    <div class="redes" style="margin-bottom: 20px;">
-      🌐 Síguenos:
-      <a href="https://www.instagram.com/lifepanamaorg" target="_blank" rel="noopener noreferrer" style="margin: 0 10px; text-decoration: none; color: #2e8b57; font-weight: bold;">📸 Instagram</a>
-      <a href="https://www.facebook.com/lifepanamaorg" target="_blank" rel="noopener noreferrer" style="margin: 0 10px; text-decoration: none; color: #2e8b57; font-weight: bold;">📘 Facebook</a>
-      <a href="https://wa.me/50764738689" target="_blank" rel="noopener noreferrer" style="margin: 0 10px; text-decoration: none; color: #2e8b57; font-weight: bold;">💬 WhatsApp</a>
-    </div>
-    <!-- Licencias al final -->
-    <p style="font-size: 0.9em; color: #4a6d4a; margin-top: 0;">
-      Licencias:<br/>
-      • Código fuente: MIT License<br/>
-      • Contenido educativo y gráfico: CC BY-NC 4.0
-    </p>
-  </footer>
