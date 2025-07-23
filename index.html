@@ -275,245 +275,123 @@ html {
     </ul>
   </section>
 
-  <!-- NUEVO: Calendario de Próximos eventos -->
- <section id="proximos-eventos">
-  <h2 style="text-align:center; color:#2e8b57; margin-bottom: 5px;">Próximos eventos - Julio 2025</h2>
-  <table class="calendar" aria-label="Calendario de próximos eventos" style="max-width: 600px; margin-left:auto; margin-right:auto; border:1px solid #2e8b57;">
-    <thead>
-      <tr>
-        <th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th><th>Domingo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td><td></td>
-        <td>
-          <div class="fecha-num">1</div>
-        </td>
-        <td class="evento">
-          <div class="fecha-num">2</div>
-          <div class="evento-detalle">
-            Limpieza de Playa<br/>
-            Playa Veracruz
-          </div>
-        </td>
-        <td>
-          <div class="fecha-num">3</div>
-        </td>
-        <td>
-          <div class="fecha-num">4</div>
-        </td>
-        <td>
-          <div class="fecha-num">5</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">6</div>
-        </td>
-        <td>
-          <div class="fecha-num">7</div>
-        </td>
-        <td>
-          <div class="fecha-num">8</div>
-        </td>
-        <td>
-          <div class="fecha-num">9</div>
-        </td>
-        <td class="evento">
-          <div class="fecha-num">10</div>
-          <div class="evento-detalle">
-            Taller Ambiental
-          </div>
-        </td>
-        <td>
-          <div class="fecha-num">11</div>
-        </td>
-        <td>
-          <div class="fecha-num">12</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">13</div>
-        </td>
-        <td class="evento">
-          <div class="fecha-num">14</div>
-          <div class="evento-detalle">
-            Charla Científica
-          </div>
-        </td>
-        <td>
-          <div class="fecha-num">15</div>
-        </td>
-        <td>
-          <div class="fecha-num">16</div>
-        </td>
-        <td>
-          <div class="fecha-num">17</div>
-        </td>
-        <td>
-          <div class="fecha-num">18</div>
-        </td>
-        <td>
-          <div class="fecha-num">19</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">20</div>
-        </td>
-        <td>
-          <div class="fecha-num">21</div>
-        </td>
-        <td>
-          <div class="fecha-num">22</div>
-        </td>
-        <td>
-          <div class="fecha-num">23</div>
-        </td>
-        <td>
-          <div class="fecha-num">24</div>
-        </td>
-        <td>
-          <div class="fecha-num">25</div>
-        </td>
-        <td>
-          <div class="fecha-num">26</div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="fecha-num">27</div>
-        </td>
-        <td>
-          <div class="fecha-num">28</div>
-        </td>
-        <td>
-          <div class="fecha-num">29</div>
-        </td>
-        <td>
-          <div class="fecha-num">30</div>
-        </td>
-        <td>
-          <div class="fecha-num">31</div>
-        </td>
-        <td></td><td></td>
-      </tr>
-    </tbody>
-  </table>
-   
-  <style>
-    table.calendar {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 600px;
-      margin-left:auto;
-      margin-right:auto;
-      border: 1px solid #2e8b57;
-      color: #2f4f2f;
-      font-family: Arial, sans-serif;
-    }
-    table.calendar th, table.calendar td {
-      border: 1px solid #2e8b57;
-      padding: 8px;
-      vertical-align: top;
-      text-align: center;
-    }
-    table.calendar thead th {
-      background-color: #2e8b57;
-      color: white;
-      font-weight: bold;
-      padding: 12px;
-    }
-    .fecha-num {
-      font-weight: bold;
-      font-size: 1.1em;
-      margin-bottom: 6px;
-    }
-    td.evento {
-      background-color: #d0f0d0;
-      cursor: default;
-    }
-    .evento-detalle {
-      font-size: 0.85em;
-      color: #236323;
-      line-height: 1.2em;
-    }
-    td.evento:hover {
-      background-color: #a2dba2;
-    }
-    /* --- RESPONSIVE DESIGN --- */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
+<!-- NUEVO: Calendario dinámico con eventos -->
+<section id="proximos-eventos" style="margin-top: 40px;">
+  <h2 style="text-align:center; color:#2e8b57;">Próximos eventos</h2>
+  <div id="calendario-dinamico" style="max-width: 600px; margin: auto;"></div>
+  <div id="detalle-evento" style="margin-top: 20px; text-align:center; font-weight: bold; color:#2e8b57;"></div>
+</section>
 
-  header {
-    padding: 15px;
-    font-size: 18px;
-  }
-
-  h1, h2, h3 {
-    font-size: 1.3em;
-  }
-
-  section {
-    margin-top: 20px;
-    padding: 10px;
-  }
-
-  .info-section ul {
-    padding-left: 20px;
-  }
-
-  table, th, td {
-    font-size: 14px;
-  }
-
-  .grid-galeria {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-  }
-
-  .boton-donar {
+<style>
+  table.calendar {
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  table.calendar thead th {
+    background-color: #2e8b57;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+  }
+
+  table.calendar td {
     text-align: center;
-    padding: 12px;
-  }
-
-  footer {
-    padding: 15px;
-    font-size: 14px;
-  }
-
-  .redes a {
-    display: block;
-    margin: 5px 0;
-  }
-
-  nav ul.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 0;
-  }
-
-  nav ul.menu li {
-    margin: 0;
-  }
-
-  nav ul.menu a {
-    font-size: 16px;
-  }
-
-  #contacto,
-  #form-contacto {
-    width: 100%;
     padding: 10px;
-    box-sizing: border-box;
+    border: 1px solid #ccc;
   }
-  </style>
+
+  table.calendar td.evento {
+    background-color: #d2f8d2;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #calendario-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  #calendario-nav button {
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const eventos = {
+    '2025-08-10': '🌊 Limpieza de playa en Veracruz a las 8:00 a.m.',
+    '2025-08-15': '📚 Taller de educación ambiental en biblioteca municipal.',
+    '2025-08-20': '🏫 Charla sobre conservación en escuela secundaria.',
+  };
+
+  let fechaCalendario = new Date();
+
+  function generarCalendario(fechaActual = new Date()) {
+    const calendario = document.getElementById('calendario-dinamico');
+    const year = fechaActual.getFullYear();
+    const month = fechaActual.getMonth();
+    const diasMes = new Date(year, month + 1, 0).getDate();
+    const primerDia = new Date(year, month, 1).getDay();
+
+    let html = `<div id="calendario-nav">
+      <button onclick="cambiarMes(-1)">&#8592; Anterior</button>
+      <h3>${fechaActual.toLocaleString('es-ES', { month: 'long', year: 'numeric' })}</h3>
+      <button onclick="cambiarMes(1)">Siguiente &#8594;</button>
+    </div>`;
+
+    html += '<table class="calendar"><thead><tr>';
+    const diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    diasSemana.forEach(dia => html += `<th>${dia}</th>`);
+    html += '</tr></thead><tbody><tr>';
+
+    let diaActual = 1;
+    let diaSemana = primerDia;
+
+    for (let i = 0; i < primerDia; i++) {
+      html += '<td></td>';
+    }
+
+    while (diaActual <= diasMes) {
+      const fechaStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(diaActual).padStart(2, '0')}`;
+      const tieneEvento = eventos[fechaStr];
+
+      html += `<td class="${tieneEvento ? 'evento' : ''}" 
+                 data-fecha="${fechaStr}"
+                 onclick="${tieneEvento ? `mostrarEvento('${fechaStr}')` : ''}">
+                 ${diaActual}
+               </td>`;
+
+      if ((diaSemana + 1) % 7 === 0) html += '</tr><tr>';
+      diaSemana++;
+      diaActual++;
+    }
+
+    html += '</tr></tbody></table>';
+    calendario.innerHTML = html;
+  }
+
+  function cambiarMes(valor) {
+    fechaCalendario.setMonth(fechaCalendario.getMonth() + valor);
+    generarCalendario(fechaCalendario);
+    document.getElementById('detalle-evento').textContent = '';
+  }
+
+  function mostrarEvento(fecha) {
+    const detalle = eventos[fecha] || '';
+    document.getElementById('detalle-evento').textContent = `📌 ${detalle}`;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => generarCalendario());
+</script>
+
 </section>
 
   <!-- NUEVO: Galería -->
